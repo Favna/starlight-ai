@@ -5,7 +5,7 @@ import { LightCommand } from '../../lib/structures/commands/LightCommand';
 import { Stopwatch } from '@sapphire/stopwatch';
 import { Type } from '@sapphire/type';
 import { isThenable, codeBlock } from '@sapphire/utilities';
-import { inspect } from 'node:util';
+import { inspect } from 'util';
 
 @ApplyOptions<CommandOptions>({
 	aliases: ['ev'],
@@ -13,7 +13,8 @@ import { inspect } from 'node:util';
 	preconditions: ['OwnerOnly']
 })
 export default class extends LightCommand {
-	public async run(message: Message, args: LightCommand.Args): Promise<Message> {
+	// eslint-disable-next-line prettier/prettier
+	public override async run(message: Message, args: LightCommand.Args): Promise<Message> {
 		const code = await args.pick('string');
 		const { result, type, time, success } = await this.eval(message, code);
 

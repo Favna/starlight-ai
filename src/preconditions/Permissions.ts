@@ -32,7 +32,9 @@ const readablePermissions: Record<PermissionString, string> = {
 	MOVE_MEMBERS: 'Move Members',
 	USE_VAD: 'Use Voice Activity',
 	PRIORITY_SPEAKER: 'Priority Speaker',
-	VIEW_GUILD_INSIGHTS: 'View Guild Insights'
+	VIEW_GUILD_INSIGHTS: 'View Guild Insights',
+	REQUEST_TO_SPEAK: 'Request to Speak',
+	USE_APPLICATION_COMMANDS: 'Use slashies'
 };
 
 export default class CorePrecondition extends Precondition {
@@ -48,7 +50,8 @@ export default class CorePrecondition extends Precondition {
 		Permissions.FLAGS.ADD_REACTIONS
 	]).freeze();
 
-	public run(message: Message, _: Command, context: PreconditionContext): PreconditionResult {
+	// eslint-disable-next-line prettier/prettier
+	public override run(message: Message, _: Command, context: PreconditionContext): PreconditionResult {
 		const required = (context.permissions as Permissions) ?? new Permissions(0n);
 		const permissions = message.guild
 			? (message.channel as TextChannel | NewsChannel).permissionsFor(message.client.id!)!

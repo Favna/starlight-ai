@@ -1,6 +1,6 @@
 import '../preload';
 import { rootFolder } from '../utils';
-import { join } from 'node:path';
+import { join } from 'path';
 import { config as dotenvConfig } from 'dotenv';
 import * as TypeORM from 'typeorm';
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';

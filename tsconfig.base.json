@@ -2,10 +2,7 @@
     "extends": "@sapphire/ts-config",
     "compilerOptions": {
         "target": "ESNext",
-        "noEmitHelpers": true,
-        "importHelpers": false,
-        "removeComments": true,
         "importsNotUsedAsValues": "remove",
-        "module": "commonjs"
+        "noImplicitOverride": true
     }
 }

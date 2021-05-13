@@ -1,7 +1,7 @@
 import esbuild from 'esbuild';
-import { opendir, writeFile, readdir, mkdir, copyFile } from 'node:fs/promises';
-import { join, extname, dirname, basename } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { opendir, writeFile, readdir, mkdir, copyFile } from 'fs/promises';
+import { join, extname, dirname, basename } from 'path';
+import { fileURLToPath } from 'url';
 import { esbuildDecorators } from '@anatine/esbuild-decorators';
 
 const PROD_OPTIONS = {
@@ -16,7 +16,7 @@ const DEV_OPTIONS = {
 
 const BUNDLE_OPTIONS = {
 	bundle: true,
-	external: ['node:url', 'node:worker_threads', 'node:os', 'node:path', 'node:events', 'node:fs/promises', 'node:util', 'ffmpeg-static']
+	external: ['url', 'worker_threads', 'os', 'path', 'events', 'fs/promises', 'util', 'ffmpeg-static']
 }
 
 async function* scan(path, cb) {

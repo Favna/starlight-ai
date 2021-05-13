@@ -1,4 +1,4 @@
-import { rm } from 'node:fs/promises';
+import { rm } from 'fs/promises';
 
 const distFolder = new URL('../../dist', import.meta.url);
 

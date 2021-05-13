@@ -11,7 +11,8 @@ export interface CooldownContext extends PreconditionContext {
 export default class extends Precondition {
 	public buckets = new WeakMap<Command, Bucket<string>>();
 
-	public run(message: Message, command: Command, context: CooldownContext): PreconditionResult {
+	// eslint-disable-next-line prettier/prettier
+	public override run(message: Message, command: Command, context: CooldownContext): PreconditionResult {
 		if (context.external) return this.ok();
 
 		if (!context.delay) return this.ok();

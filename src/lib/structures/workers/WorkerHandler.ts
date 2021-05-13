@@ -1,11 +1,11 @@
 import { AsyncQueue } from '@sapphire/async-queue';
-import { Worker } from 'node:worker_threads';
+import { Worker } from 'worker_threads';
 import { ResponseHandler } from './ResponseHandler';
 import { cyan, yellow, green, red } from 'colorette';
 import { Store } from '@sapphire/framework';
-import { once } from 'node:events';
+import { once } from 'events';
 import { IncomingPayload, NoId, OutgoingPayload, OutgoingType } from './types';
-import { join } from 'node:path';
+import { join } from 'path';
 
 export class WorkerHandler {
 	public lastHeartBeat!: number;

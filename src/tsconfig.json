@@ -7,9 +7,7 @@
         "composite": true,
         "jsx": "react",
         "jsxFactory": "EmbedJsx.make",
-		"noEmit": true,
-		"module": "ESNext",
-		"emitDecoratorMetadata": true
+		"module": "ESNext"
     },
     "include": [
         ".",

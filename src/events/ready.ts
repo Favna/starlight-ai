@@ -6,7 +6,8 @@ import { Event, Events, EventOptions } from '@sapphire/framework';
 	event: Events.Ready
 })
 export default class extends Event {
-	public run(): void {
+	// eslint-disable-next-line prettier/prettier
+	public override run(): void {
 		this.context.client.id ??= this.context.client.user?.id ?? null;
 	}
 }

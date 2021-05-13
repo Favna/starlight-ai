@@ -1,4 +1,4 @@
-import { cpus } from 'node:os';
+import { cpus } from 'os';
 import type { IncomingPayload, NoId, OutgoingPayload } from './types.js';
 import { WorkerHandler } from './WorkerHandler';
 import { Store } from '@sapphire/framework';

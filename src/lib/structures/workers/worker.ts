@@ -1,5 +1,5 @@
 import { TimerManager } from '@sapphire/time-utilities';
-import { parentPort, isMainThread, MessagePort } from 'node:worker_threads';
+import { parentPort, isMainThread, MessagePort } from 'worker_threads';
 import { IncomingPayload, OutgoingPayload, OutgoingType } from './types';
 
 function checkParentPort(port: unknown): asserts port is MessagePort {

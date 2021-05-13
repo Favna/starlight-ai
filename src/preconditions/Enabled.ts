@@ -6,7 +6,8 @@ import type { Message } from 'discord.js';
 	position: 10
 })
 export default class extends Precondition {
-	public run(_: Message, command: Command, context: PreconditionContext): PreconditionResult {
+	// eslint-disable-next-line prettier/prettier
+	public override run(_: Message, command: Command, context: PreconditionContext): PreconditionResult {
 		return command.enabled ? this.ok() : this.error({ identifier: Identifiers.CommandDisabled, message: 'This command is disabled.', context });
 	}
 }

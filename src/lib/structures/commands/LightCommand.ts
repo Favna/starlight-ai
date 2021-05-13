@@ -1,7 +1,7 @@
 import { Awaited, CommandContext, PieceContext, UserError } from '@sapphire/framework';
 import { SubCommandPluginCommand, SubCommandPluginCommandOptions } from '@sapphire/plugin-subcommands';
 import { StarArgs } from './StarArgs';
-import { sep } from 'node:path';
+import { sep } from 'path';
 import type { Message } from 'discord.js';
 import * as Lexure from 'lexure';
 
@@ -27,13 +27,14 @@ export abstract class LightCommand extends SubCommandPluginCommand<LightCommand.
 		return this.fullCategory.length > 0 ? this.fullCategory[1] : 'General';
 	}
 
-	public async preParse(message: Message, parameters: string, context: CommandContext): Promise<LightCommand.Args> {
+	// eslint-disable-next-line prettier/prettier
+	public override async preParse(message: Message, parameters: string, context: CommandContext): Promise<LightCommand.Args> {
 		const parser = new Lexure.Parser(this.lexer.setInput(parameters).lex()).setUnorderedStrategy(this.strategy);
 		const args = new Lexure.Args(parser.parse());
 		return new StarArgs(message, this, args, context, await message.fetchT());
 	}
 
-	public run(message: Message, args: LightCommand.Args, context: CommandContext): Awaited<unknown> {
+	public override run(message: Message, args: LightCommand.Args, context: CommandContext): Awaited<unknown> {
 		if (!this.subCommands) throw new Error(`The command ${this.name} does not have a 'run' method and does not support sub-commands.`);
 		return this.subCommands.run({ message, args, context, command: this });
 	}

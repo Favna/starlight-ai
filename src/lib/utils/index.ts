@@ -1,5 +1,5 @@
 import type { PostProcessorModule } from 'i18next';
-import { join } from 'node:path';
+import { join } from 'path';
 import type { ReferredPromise } from './types';
 
 export * from './EnvLoader';

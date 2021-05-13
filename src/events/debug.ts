@@ -5,7 +5,8 @@ import { Event, EventOptions, Events } from '@sapphire/framework';
 	event: Events.Debug
 })
 export default class extends Event {
-	public run(...args: unknown[]): void {
+	// eslint-disable-next-line prettier/prettier
+	public override run(...args: unknown[]): void {
 		this.context.client.logger.debug(...args);
 	}
 }
