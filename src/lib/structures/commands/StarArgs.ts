@@ -5,8 +5,8 @@ import type { Args as LexureArgs } from 'lexure';
 import type { LightCommand } from './LightCommand';
 
 export class StarArgs extends Args {
-	// eslint-disable-next-line prettier/prettier
-	public override t: TFunction;
+	// @ts-expect-error (4114) This should not get override
+	public t: TFunction;
 
 	public constructor(message: Message, command: LightCommand, args: LexureArgs, context: CommandContext, t: TFunction) {
 		super(message, command, args, context);
